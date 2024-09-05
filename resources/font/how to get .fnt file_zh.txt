@@ -1,0 +1,29 @@
+1. 从 https://github.com/TakWolf/fusion-pixel-font 下载字体
+2. 我这里选择 fusion-pixel-font-12px-proportional-zh_hans.ttf
+3. 把这个字体安装到你的电脑上
+4. 从 https://www.angelcode.com/products/bmfont/ 下载 BMFont 工具
+5. 打开 BMFont 工具
+6. 在设置里选择刚刚安装的字体
+7. 进行各种设置、选择要导出的字（Edit→Select chars from file）
+8. 导出为 .fnt 文件
+
+-----Font Settings:
+Font: Fusion Pixel 12px Proportional
+Charset: unicode
+Size: 12px
+Height: 100%
+Match char height: ON
+Outline thickness: 1
+Everything else: OFF
+
+-----Export Options:
+Spacing: A= 1 ; B = 1
+Equalize the cell heights: ON
+Width: 1024
+Height: 1024
+Bit depth: 32
+Chnl A: Outline
+Chnl RGB: Glyph
+Font descriptor: Binary
+Textures: png Portable Network Graphics
+Compression: Deflate
