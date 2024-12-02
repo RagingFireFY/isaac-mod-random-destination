@@ -53,8 +53,6 @@ This mod supports the Mod Config Menu Pure mod for in-game configuration changes
   
   - Hush Helper - remove 30 minutes limit
   
-  - Delirium Helper - defeat ??? or The Lamb will always open The Void portal
-  
   - Mother Helper - open Mom's Heart Door directly no need Full Knife
   
   - The Beast Helper - open a portal in the Mom boss room for leave

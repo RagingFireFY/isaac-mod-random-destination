@@ -54,8 +54,6 @@
   
   - Hush Helper - 取消30分钟限制
   
-  - Delirium Helper - 打败???或羔羊后必定开启通往虚空的传送门
-  
   - Mother Helper - 直接打开妈妈心脏房，不需要完整菜刀
   
   - The Beast Helper - 在妈腿的房间会生成一个传送门来离开boss房间

@@ -17,7 +17,6 @@ local cfg = {
   addTheBeastToRandomPool = true,
   ifMegaSatanIsDrawnThenGiveFullKey = true,
   ifHushIsDrawnThenRemoveTheTimeLimit = true,
-  ifDeliriumIsDrawnThenAlwaysOpenTheVoid = true,
   ifMotherIsDrawnThenOpenMomsHeartDoor = true,
   ifTheBeastIsDrawnThenOpenPortalInTheMomBossRoomForLeave = true
 }
@@ -88,7 +87,6 @@ local function main(_, isContinued)
       end
       -- add callback again
       rd_helper:hushHelper(recentBoss, rd_desc, cfg, mod, rd_util, game)
-      rd_helper:deliriumHelper(recentBoss, rd_desc, cfg, mod, rd_util, game)
       rd_helper:motherHelper(recentBoss, rd_desc, cfg, mod, rd_util, game)
       rd_helper:theBeastHelper(recentBoss, rd_desc, cfg, mod, rd_util, game)
     end
@@ -142,7 +140,6 @@ local function main(_, isContinued)
   -- helper
   rd_helper:megaSatanHelper(drawnBoss, rd_desc, cfg)
   rd_helper:hushHelper(drawnBoss, rd_desc, cfg, mod, rd_util, game)
-  rd_helper:deliriumHelper(drawnBoss, rd_desc, cfg, mod, rd_util, game)
   rd_helper:motherHelper(drawnBoss, rd_desc, cfg, mod, rd_util, game)
   rd_helper:theBeastHelper(drawnBoss, rd_desc, cfg, mod, rd_util, game)
 end

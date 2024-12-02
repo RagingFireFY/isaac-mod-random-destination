@@ -43,60 +43,6 @@ function rd_helper:hushHelper(drawnBoss, rd_desc, cfg, mod, rd_util, game)
   end
 end
 
-function rd_helper:deliriumHelper(drawnBoss, rd_desc, cfg, mod, rd_util, game)
-  if (drawnBoss == rd_desc.delirium and cfg.ifDeliriumIsDrawnThenAlwaysOpenTheVoid) then
-    local function openVoidPortal()
-      local voidPortal = Isaac.GridSpawn(GridEntityType.GRID_TRAPDOOR, 1, Vector(320, 360), false)
-      voidPortal.VarData = 1
-      local sprite = voidPortal:GetSprite()
-      sprite:Load("gfx/grid/voidtrapdoor.anm2", true)
-    end
-
-    local function openVoidPortalCallback()
-      local room = game:GetRoom()
-      local roomType = room:GetType()
-      if (room:IsClear() and roomType == RoomType.ROOM_BOSS) then
-        openVoidPortal()
-        mod:RemoveCallback(ModCallbacks.MC_POST_ENTITY_REMOVE, openVoidPortalCallback)
-      end
-    end
-
-    local function doHelper1(_, entityNPC)
-      if (rd_util:getEntityID(entityNPC) == "102.1.0") then
-        mod:RemoveCallback(ModCallbacks.MC_POST_NPC_DEATH, doHelper1)
-        local room = game:GetRoom()
-        if room:IsClear()
-        then
-          openVoidPortal()
-        else
-          mod:AddCallback(ModCallbacks.MC_POST_ENTITY_REMOVE, openVoidPortalCallback)
-        end
-      end
-    end
-    mod:AddCallback(ModCallbacks.MC_POST_NPC_DEATH, doHelper1, EntityType.ENTITY_ISAAC)
-
-    local function doHelper2()
-      mod:RemoveCallback(ModCallbacks.MC_POST_NPC_DEATH, doHelper2)
-      local room = game:GetRoom()
-      if room:IsClear()
-      then
-        openVoidPortal()
-      else
-        mod:AddCallback(ModCallbacks.MC_POST_ENTITY_REMOVE, openVoidPortalCallback)
-      end
-    end
-    mod:AddCallback(ModCallbacks.MC_POST_NPC_DEATH, doHelper2, EntityType.ENTITY_THE_LAMB)
-
-    local function exitGameRemoveHelper()
-      mod:RemoveCallback(ModCallbacks.MC_POST_NPC_DEATH, doHelper1)
-      mod:RemoveCallback(ModCallbacks.MC_POST_NPC_DEATH, doHelper2)
-      mod:RemoveCallback(ModCallbacks.MC_POST_ENTITY_REMOVE, openVoidPortalCallback)
-      mod:RemoveCallback(ModCallbacks.MC_PRE_GAME_EXIT, exitGameRemoveHelper)
-    end
-    mod:AddCallback(ModCallbacks.MC_PRE_GAME_EXIT, exitGameRemoveHelper)
-  end
-end
-
 function rd_helper:motherHelper(drawnBoss, rd_desc, cfg, mod, rd_util, game)
   if (drawnBoss == rd_desc.mother and cfg.ifMotherIsDrawnThenOpenMomsHeartDoor) then
     local function doOpen(door)

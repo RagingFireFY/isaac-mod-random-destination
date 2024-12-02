@@ -274,26 +274,6 @@ function rd_mcm:init(rd_data, mod, cfg)
       {
         Type = ModConfigMenu.OptionType.BOOLEAN,
         CurrentSetting = function()
-          return cfg.ifDeliriumIsDrawnThenAlwaysOpenTheVoid
-        end,
-        Display = function()
-          local onOff = "False"
-          if cfg.ifDeliriumIsDrawnThenAlwaysOpenTheVoid then
-            onOff = "True"
-          end
-          return 'Delirium Helper: ' .. onOff
-        end,
-        OnChange = function(currentBool)
-          cfg.ifDeliriumIsDrawnThenAlwaysOpenTheVoid = currentBool
-          rd_data:saveData(mod, cfg)
-        end,
-        Info = { 'If true, when Delirium is drawn and defeat The Lamb or ??? will open The Void portal.' }
-      })
-
-    ModConfigMenu.AddSetting(RandomDestination, "Helper",
-      {
-        Type = ModConfigMenu.OptionType.BOOLEAN,
-        CurrentSetting = function()
           return cfg.ifMotherIsDrawnThenOpenMomsHeartDoor
         end,
         Display = function()
