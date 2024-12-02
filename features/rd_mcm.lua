@@ -1,6 +1,7 @@
 local rd_mcm = {}
 
 local rd_where_to_show_enum = require("features.enum.rd_where_to_show_enum")
+local rd_descriptions_language = require("features.enum.rd_descriptions_language")
 
 function rd_mcm:init(rd_data, mod, cfg)
   if ModConfigMenu then
@@ -30,6 +31,25 @@ function rd_mcm:init(rd_data, mod, cfg)
         end,
         Info = { 'If false, this mod will do nothing.' }
       })
+
+    ModConfigMenu.AddSetting(RandomDestination, "Misc",
+      {
+        Type = ModConfigMenu.OptionType.NUMBER,
+        CurrentSetting = function()
+          return rd_descriptions_language:getTableIndex(rd_descriptions_language.obj, cfg.language)
+        end,
+        Minimum = 1,
+        Maximum = #rd_descriptions_language.obj,
+        Display = function()
+          return "Language: " .. cfg.language
+        end,
+        OnChange = function(currentChoice)
+          cfg.language = rd_descriptions_language.obj[currentChoice]
+          rd_data:saveData(mod, cfg)
+        end,
+        Info = { "Set the language in which destination text is displayed." }
+      }
+    )
 
     ModConfigMenu.AddSetting(RandomDestination, "Misc",
       {

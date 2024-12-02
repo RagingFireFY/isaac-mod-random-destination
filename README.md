@@ -27,6 +27,7 @@ This mod supports the Mod Config Menu Pure mod for in-game configuration changes
 - Misc 
   
   - Is this mod enabled - switch this mod on and off
+  - Language - set the language in which destination text is displayed
   - Show destination always - destination text will show always
   - Where to show always - where the destination text is always shown(top or bottom)
 

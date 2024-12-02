@@ -26,6 +26,8 @@
   
   - Is this mod enabled - 开关此mod
   
+  - Language - 设置终点文本显示的语言
+  
   - Show destination always - 终点文本是否一直显示
   
   - Where to show always - 终点文本一直显示的位置(顶部或底部)

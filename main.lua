@@ -1,9 +1,11 @@
 local mod = RegisterMod("Random Destination", 1)
 
 local rd_where_to_show_enum = require("features.enum.rd_where_to_show_enum")
+local rd_descriptions_language = require("features.enum.rd_descriptions_language")
 
 local cfg = {
   isThisModEnabled = true,
+  language = rd_descriptions_language.obj[1],
   isShowAlways = false,
   whereToShowAlways = rd_where_to_show_enum.obj[2],
   addBlueBabyToRandomPool = true,
@@ -36,11 +38,16 @@ rd_mcm:init(rd_data, mod, cfg)
 
 -- require descriptions
 local rd_desc
-if Options.Language == "zh"
-then
-  rd_desc = require("descriptions.zh_cn")
-else
-  rd_desc = require("descriptions.en_us")
+local languageSwitch = {
+  [rd_descriptions_language.obj[1]] = function()
+    rd_desc = require("descriptions.en_us")
+  end,
+  [rd_descriptions_language.obj[2]] = function()
+    rd_desc = require("descriptions.zh_cn")
+  end
+}
+if languageSwitch[cfg.language] then
+  languageSwitch[cfg.language]()
 end
 
 local rd_util = require("features.rd_util")
