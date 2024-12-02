@@ -1,8 +1,10 @@
 [中文说明](README_zh.md)
 
+**If you play Repentance, please switch to branch `rep`**
+
 # About
 
-This is a mod for The Binding of Isaac Repentance, which functions by giving a random destination to play at the beginning of new run, similar to a random character opening the game.
+This is a mod for The Binding of Isaac Repentance(+), which functions by giving a random destination to play at the beginning of new run, similar to a random character opening the game.
 
 The random destination provided by this mod are just a hint message that you are not forced to follow, for example, if this run draws Mega Satan as the destination, you can still defeat The Lamb to end this run.
 
